@@ -1,0 +1,27 @@
+{
+  "name": "maxval",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/natplusultra/maXval.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/natplusultra/maXval/issues"
+  },
+  "homepage": "https://github.com/natplusultra/maXval#readme",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "body-parser": "^1.18.2",
+    "concurrently": "^3.5.1",
+    "express": "^4.16.2",
+    "mongoose": "^5.0.0-rc2",
+    "path": "^0.12.7"
+  }
+}
