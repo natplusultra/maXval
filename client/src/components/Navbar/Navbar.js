@@ -11,24 +11,34 @@ class Navbar extends Component {
     uuid: ""
   }
   
-  // handles logged in/out status change... logic TBD
-  // handleLoggedChange = event => {
-  //   this.setState({
-  //     loggedIn: true,
-  //     image: event.target.image,
-  //     uuid: event.target.uuid
-  //   });
-  // }
+  // handles logging in
+  handleLogIn = event => {
+    this.setState({
+      loggedIn: true,
+      image: event.target.image,
+      uuid: event.target.uuid
+    });
+  }
+
+  //handles logging out
+  handleLogOut = () => {
+    this.setState({
+      loggedIn: false,
+      image: "",
+      uuid: ""
+    });
+  }
 
   loggedOutMenu = () => {
     return (
       <ul className="right">
-        <li><Link to="/user/:id">Log In</Link></li>
+        <li><Link to="/login">Log In</Link></li>
         <li><Link to="/signup">Sign Up</Link></li>
         <li className="avatar">
           <Avatar
             src={this.state.image}
-            size={45}
+            size={40}
+            style={{verticalAlign: "middle"}}
           />
         </li>
       </ul>
@@ -43,7 +53,8 @@ class Navbar extends Component {
         <li className="avatar"><Link to="/user">
           <Avatar
             src={this.state.image}
-            size={45}
+            size={40}
+            style={{verticalAlign: "middle"}}
           />
         </Link></li>
       </ul>
