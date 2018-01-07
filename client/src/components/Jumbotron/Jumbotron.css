@@ -1,17 +1,25 @@
 .jumbotron {
-    background-color: rgb(184, 183, 183);
+    background-image: url("/images/roman-kraft-197672.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 550px;
     color: white;
-    height: 400px;
 }
 
-h1 {
+.title {
     margin: 0px;
     text-align: center;
-    padding-top: 100px;
+    padding-top: 110px;
+    font-size: 120px;
 }
 
-p, .btn-div {
+.tagline, .btn-div {
     text-align: center;
+    font-size: 25px;
+}
+
+.btn {
+    background-color: rgb(184, 156, 32);
 }
 
 
