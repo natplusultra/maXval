@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
+import Rate from "./pages/Rate";
 
 class App extends Component {
     // sets the initial values
@@ -34,18 +35,20 @@ class App extends Component {
         return (
             <Router>
                 <MuiThemeProvider>
-                    <Navbar 
-                        loggedIn={this.state.loggedIn}
-                        image={this.state.image}
-                        uuid={this.state.uuid}
-                        handleLogOut={this.handleLogOut}
-                    />
-                    <Switch>
-                        <Route exact path="/" component={Home} />
-                        {/* <Route exact path="/rate/:id" component={Rate} />
-                        <Route exact path="/user/:id" component={User} />
-                        <Route exact path="/product/:id" component={Product} /> */}
-                    </Switch>
+                    <div>
+                        <Navbar 
+                            loggedIn={this.state.loggedIn}
+                            image={this.state.image}
+                            uuid={this.state.uuid}
+                            handleLogOut={this.handleLogOut}
+                        />
+                        <Switch>
+                            <Route exact path="/" component={Home} />
+                            <Route exact path="/rate" component={Rate} />
+                            {/* <Route exact path="/user/:id" component={User} />
+                            <Route exact path="/product/:id" component={Product} /> */}
+                        </Switch>
+                    </div>
                 </MuiThemeProvider>
             </Router>
         );
