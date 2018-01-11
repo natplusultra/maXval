@@ -4,34 +4,82 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Rate from "./pages/Rate";
+import Login from "./pages/Login";
+import Logout from './pages/Logout';
+import { app, base } from './base';
+
 
 class App extends Component {
     // sets the initial values
-    state = {
-        loggedIn: false,
-        image: "https://www.finearttips.com/wp-content/uploads/2010/05/avatar.jpg",
-        uuid: ""
+    constructor() {
+        super();
+        this.setCurrentUser = this.setCurrentUser.bind(this);
+        this.state = {
+            loggedIn: false,
+            image: "https://www.finearttips.com/wp-content/uploads/2010/05/avatar.jpg",
+            currentUser: null,
+            uid: ""
+        }
     }
-  
     // handles logging in
-    handleLogIn = event => {
-        this.setState({
-        loggedIn: true,
-        image: event.target.image,
-        uuid: event.target.uuid
-        });
-    }
+    // handleLogIn = event => {
+    //     this.setState({
+    //     loggedIn: true,
+    //     image: event.target.image,
+    //     uuid: event.target.uuid
+    //     });
+    // }
 
     //handles logging out
-    handleLogOut = () => {
-        this.setState({
-        loggedIn: false,
-        image: "https://www.finearttips.com/wp-content/uploads/2010/05/avatar.jpg",
-        uuid: ""
-        });
-    }
+    // handleLogOut = () => {
+    //     this.setState({
+    //     loggedIn: false,
+    //     image: "https://www.finearttips.com/wp-content/uploads/2010/05/avatar.jpg",
+    //     uuid: ""
+    //     });
+    // }
+
+    setCurrentUser(user) {
+        if (user) {
+          this.setState({
+            loggedIn: true,
+            currentUser: user,
+            uid: user.uid
+          })
+        } else {
+          this.setState({
+            loggedIn: false,
+            currentUser: null,
+            uid: null
+          })
+        }
+      }
+
+      componentWillMount() {
+        this.removeAuthListener = app.auth().onAuthStateChanged((user) => {
+          if (user) {
+            this.setState({
+              loggedIn: true,
+              currentUser: user,
+              uid: user.uid
+            })
+          } else {
+            this.setState({
+              loggedIn: false,
+              currentUser: null,
+              uid: null
+            })
+          }
+        })
+      }
+    
+      componentWillUnmount() {
+        this.removeAuthListener();
+      }
+    
 
     render() {
+      console.log(this.state.uid);
         return (
             <Router>
                 <MuiThemeProvider>
@@ -45,6 +93,10 @@ class App extends Component {
                         <Switch>
                             <Route exact path="/" component={Home} />
                             <Route exact path="/rate" component={Rate} />
+                            <Route exact path="/login" render={(props) => {
+                              return <Login setCurrentUser={this.setCurrentUser} {...props} />
+                            }} />
+                            <Route exact path="/logout" component={Logout} />
                             {/* <Route exact path="/user/:id" component={User} />
                             <Route exact path="/product/:id" component={Product} /> */}
                         </Switch>
