@@ -21,23 +21,6 @@ class App extends Component {
             uid: ""
         }
     }
-    // handles logging in
-    // handleLogIn = event => {
-    //     this.setState({
-    //     loggedIn: true,
-    //     image: event.target.image,
-    //     uuid: event.target.uuid
-    //     });
-    // }
-
-    //handles logging out
-    // handleLogOut = () => {
-    //     this.setState({
-    //     loggedIn: false,
-    //     image: "https://www.finearttips.com/wp-content/uploads/2010/05/avatar.jpg",
-    //     uuid: ""
-    //     });
-    // }
 
     setCurrentUser(user) {
         if (user) {

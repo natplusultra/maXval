@@ -21,7 +21,11 @@
 }
 
 .btn {
-    background-color: rgb(184, 156, 32);
+    background-color: rgb(42, 190, 183);
+}
+
+.btn:hover {
+    background-color: rgb(228, 182, 55);
 }
 
 
