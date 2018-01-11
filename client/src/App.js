@@ -27,13 +27,15 @@ class App extends Component {
           this.setState({
             loggedIn: true,
             currentUser: user,
-            uid: user.uid
+            uid: user.uid,
+            image: user.photoURL
           })
         } else {
           this.setState({
             loggedIn: false,
             currentUser: null,
-            uid: null
+            uid: null,
+            image: "https://www.finearttips.com/wp-content/uploads/2010/05/avatar.jpg"
           })
         }
       }
@@ -44,13 +46,15 @@ class App extends Component {
             this.setState({
               loggedIn: true,
               currentUser: user,
-              uid: user.uid
+              uid: user.uid,
+              image: user.photoURL
             })
           } else {
             this.setState({
               loggedIn: false,
               currentUser: null,
-              uid: null
+              uid: null,
+              image: "https://www.finearttips.com/wp-content/uploads/2010/05/avatar.jpg"
             })
           }
         })
