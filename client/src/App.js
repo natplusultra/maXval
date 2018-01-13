@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Rate from "./pages/Rate";
 import Login from "./pages/Login";
 import Logout from './pages/Logout';
+import Upload from "./pages/Upload";
 import { app, base } from './base';
 
 
@@ -24,6 +25,7 @@ class App extends Component {
 
     setCurrentUser(user) {
         if (user) {
+          localStorage.setItem('myData-User', user);
           this.setState({
             loggedIn: true,
             currentUser: user,
@@ -67,6 +69,7 @@ class App extends Component {
 
     render() {
       console.log(this.state.uid);
+      localStorage.setItem('user-id', this.state.uid);
         return (
             <Router>
                 <MuiThemeProvider>
@@ -80,6 +83,7 @@ class App extends Component {
                         <Switch>
                             <Route exact path="/" component={Home} />
                             <Route exact path="/rate" component={Rate} />
+                            <Route exact path="/upload" component={Upload} />
                             <Route exact path="/login" render={(props) => {
                               return <Login setCurrentUser={this.setCurrentUser} {...props} />
                             }} />
@@ -95,4 +99,3 @@ class App extends Component {
 }
 
 export default App;
-
