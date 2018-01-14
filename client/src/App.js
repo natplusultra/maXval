@@ -68,7 +68,7 @@ class App extends Component {
     
 
     render() {
-      console.log(this.state.uid);
+      console.log(this.state.currentUser);
       localStorage.setItem('user-id', this.state.uid);
         return (
             <Router>

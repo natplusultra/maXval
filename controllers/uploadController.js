@@ -22,5 +22,5 @@ module.exports = {
     console.log(meta)
     console.log(file)
   },
-
+  
 };
