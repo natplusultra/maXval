@@ -20,7 +20,8 @@ class App extends Component {
             currentUser: null,
             uid: "",
             name: "",
-            image: "https://www.finearttips.com/wp-content/uploads/2010/05/avatar.jpg"
+            image: "https://www.finearttips.com/wp-content/uploads/2010/05/avatar.jpg",
+            email: ""
         }
     }
 
@@ -32,7 +33,8 @@ class App extends Component {
             currentUser: user,
             uid: user.uid,
             name: user.displayName,
-            image: user.photoURL
+            image: user.photoURL,
+            email: user.email
           })
         } else {
           this.setState({
@@ -40,7 +42,8 @@ class App extends Component {
             currentUser: null,
             uid: null,
             name: null,
-            image: "https://www.finearttips.com/wp-content/uploads/2010/05/avatar.jpg"
+            image: "https://www.finearttips.com/wp-content/uploads/2010/05/avatar.jpg",
+            email: null
           })
         }
       }
@@ -53,14 +56,17 @@ class App extends Component {
               currentUser: user,
               uid: user.uid,
               name: user.displayName,
-              image: user.photoURL
+              image: user.photoURL,
+              email: user.email
             })
           } else {
             this.setState({
               loggedIn: false,
               currentUser: null,
               uid: null,
-              image: "https://www.finearttips.com/wp-content/uploads/2010/05/avatar.jpg"
+              name: null,
+              image: "https://www.finearttips.com/wp-content/uploads/2010/05/avatar.jpg",
+              email: null
             })
           }
         })
@@ -74,6 +80,11 @@ class App extends Component {
     render() {
       console.log(this.state.currentUser);
       localStorage.setItem('user-id', this.state.uid);
+      var user = {
+        name: this.state.name,
+        uid: this.state.uid,
+        email: this.state.email
+      }
         return (
             <Router>
                 <MuiThemeProvider>
@@ -86,8 +97,12 @@ class App extends Component {
                         />
                         <Switch>
                             <Route exact path="/" component={Home} />
-                            <Route exact path="/rate" component={Rate} />
-                            <Route exact path="/upload" component={Upload} />
+                            <Route exact path="/rate" render={(props) => {
+                              return <Login user={user} {...props} />
+                            }} />
+                            <Route exact path="/upload" render={(props) => {
+                              return <Login user={user} {...props} />
+                            }} />
                             <Route exact path="/login" render={(props) => {
                               return <Login setCurrentUser={this.setCurrentUser} {...props} />
                             }} />
