@@ -7,6 +7,7 @@ import Rate from "./pages/Rate";
 import Login from "./pages/Login";
 import Logout from './pages/Logout';
 import Upload from "./pages/Upload";
+import User from "./pages/User";
 import { app, base } from './base';
 
 
@@ -20,8 +21,8 @@ class App extends Component {
             currentUser: null,
             uid: "",
             name: "",
-            image: "https://www.finearttips.com/wp-content/uploads/2010/05/avatar.jpg",
-            email: ""
+            email: "",
+            image: "https://www.finearttips.com/wp-content/uploads/2010/05/avatar.jpg"
         }
     }
 
@@ -33,8 +34,8 @@ class App extends Component {
             currentUser: user,
             uid: user.uid,
             name: user.displayName,
-            image: user.photoURL,
-            email: user.email
+            email: user.email,
+            image: user.photoURL
           })
         } else {
           this.setState({
@@ -42,8 +43,8 @@ class App extends Component {
             currentUser: null,
             uid: null,
             name: null,
-            image: "https://www.finearttips.com/wp-content/uploads/2010/05/avatar.jpg",
-            email: null
+            email: null,
+            image: "https://www.finearttips.com/wp-content/uploads/2010/05/avatar.jpg"
           })
         }
       }
@@ -56,8 +57,8 @@ class App extends Component {
               currentUser: user,
               uid: user.uid,
               name: user.displayName,
-              image: user.photoURL,
-              email: user.email
+              email: user.email,
+              image: user.photoURL
             })
           } else {
             this.setState({
@@ -65,8 +66,8 @@ class App extends Component {
               currentUser: null,
               uid: null,
               name: null,
-              image: "https://www.finearttips.com/wp-content/uploads/2010/05/avatar.jpg",
-              email: null
+              email: null,
+              image: "https://www.finearttips.com/wp-content/uploads/2010/05/avatar.jpg"  
             })
           }
         })
@@ -84,8 +85,7 @@ class App extends Component {
         name: this.state.name,
         uid: this.state.uid,
         email: this.state.email,
-        image: this.state.image,
-        uid: this.state.uid
+        image: this.state.image
       }
         return (
             <Router>
@@ -94,7 +94,7 @@ class App extends Component {
                         <Navbar 
                             loggedIn={this.state.loggedIn}
                             image={this.state.image}
-                            uuid={this.state.uuid}
+                            uid={this.state.uid}
                             handleLogOut={this.handleLogOut}
                         />
                         <Switch>
@@ -109,8 +109,8 @@ class App extends Component {
                               return <Login setCurrentUser={this.setCurrentUser} {...props} />
                             }} />
                             <Route exact path="/logout" component={Logout} />
-                            {/* <Route exact path="/user/:id" component={User} />
-                            <Route exact path="/product/:id" component={Product} /> */}
+                            <Route exact path="/user/:id" component={User} />
+                            {/* <Route exact path="/product/:id" component={Product} /> */}
                         </Switch>
                     </div>
                 </MuiThemeProvider>

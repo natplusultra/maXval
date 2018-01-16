@@ -86,7 +86,7 @@ class Rate extends Component {
                                         type="Maximum value"
                                     />
                                     <br/>
-                                    <a class="waves-effect waves-light btn">Submit Rating</a>
+                                    <a className="waves-effect waves-light btn">Submit Rating</a>
                                 </CardText>
                            </Card>
                         </div>

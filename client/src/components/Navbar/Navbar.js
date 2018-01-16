@@ -12,7 +12,7 @@ const Navbar = props => (
                     <li>{ props.loggedIn ? <Link to="/rate">Rate</Link> : <Link to="/login">Log In</Link> }</li>
                     <li>{ props.loggedIn ? <Link to="/logout">Log Out</Link> : null }</li>
                     <li className="avatar">
-                        { props.loggedIn ? <Link to="/user"><Avatar src={props.image} size={40} style={{verticalAlign: "middle"}} /></Link> : <Avatar src={props.image} size={40} style={{verticalAlign: "middle"}} />}
+                        { props.loggedIn ? <Link to={`/user/${props.uid}`}><Avatar src={props.image} size={40} style={{verticalAlign: "middle"}} /></Link> : <Avatar src={props.image} size={40} style={{verticalAlign: "middle"}} />}
                     </li>
                 </ul>
             </div>
