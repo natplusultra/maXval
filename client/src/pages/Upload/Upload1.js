@@ -9,9 +9,13 @@ import Dropzone from 'react-dropzone';
 import request from 'superagent';
 
 
-// Setting Cloudinary Presets
+// Setting Cloudinary Preset 
 const CLOUDINARY_UPLOAD_PRESET = 'z3tji56i';
 const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dfkkuo5j8/image/upload';
+
+
+//User can drop an image & the component will send it to Cloudinary
+//and receives a transformed image URL for us to use.
 
 
   // Setting our component's initial state

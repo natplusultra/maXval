@@ -14,6 +14,7 @@
     "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^16.2.0",
     "react-dropzone": "^4.2.5",
+    "react-native-md-textinput": "^2.0.4",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17",
     "superagent": "^3.8.2"
