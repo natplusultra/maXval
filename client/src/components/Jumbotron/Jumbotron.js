@@ -11,7 +11,7 @@ const Jumbotron = () =>
         <br />
         <br />
         <div className="btn-div">
-            <Link to="/rate"className="waves-effect waves-light btn center-align">Get started!</Link>
+            <Link to="/rate" className="waves-effect waves-light btn center-align">Get started!</Link>
         </div>
     </div>
   </div>;
