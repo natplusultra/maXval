@@ -37,6 +37,7 @@ class Rate extends Component {
     }
 
     render() {
+        console.log(this.props.user);
         return (
             <div className="container">
                 {this.state.products.map(product => (

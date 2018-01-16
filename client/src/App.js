@@ -83,7 +83,9 @@ class App extends Component {
       var user = {
         name: this.state.name,
         uid: this.state.uid,
-        email: this.state.email
+        email: this.state.email,
+        image: this.state.image,
+        uid: this.state.uid
       }
         return (
             <Router>
@@ -98,10 +100,10 @@ class App extends Component {
                         <Switch>
                             <Route exact path="/" component={Home} />
                             <Route exact path="/rate" render={(props) => {
-                              return <Login user={user} {...props} />
+                              return <Rate user={user} {...props} />
                             }} />
                             <Route exact path="/upload" render={(props) => {
-                              return <Login user={user} {...props} />
+                              return <Upload user={user} {...props} />
                             }} />
                             <Route exact path="/login" render={(props) => {
                               return <Login setCurrentUser={this.setCurrentUser} {...props} />
