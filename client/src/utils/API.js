@@ -64,17 +64,17 @@ export default {
   // deletes a review by item id
   deleteItemReview: function(id) {
     return axios.delete("/api/review/item/" + id);
-  },
-  // saves images to MongoDB 
-  uploadImage: function(imageData) {
-    return axios.post("/api/upload", imageData);
-  },
-  // retrieves image from MongoDB
-  getSavedImage: function() {
-    return axios.get("/api/upload");
-  },
-  // deletes images from MongoDB via ID.
-  deleteImage: function(id) {
-    return axios.delete("/api/upload/" + id);
   }
+  // saves images to MongoDB 
+  // uploadImage: function(imageData) {
+  //   return axios.post("/api/upload", imageData);
+  // },
+  // // retrieves image from MongoDB
+  // getSavedImage: function() {
+  //   return axios.get("/api/upload");
+  // },
+  // // deletes images from MongoDB via ID.
+  // deleteImage: function(id) {
+  //   return axios.delete("/api/upload/" + id);
+  // }
 };

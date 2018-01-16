@@ -17,9 +17,10 @@ class App extends Component {
         this.setCurrentUser = this.setCurrentUser.bind(this);
         this.state = {
             loggedIn: false,
-            image: "https://www.finearttips.com/wp-content/uploads/2010/05/avatar.jpg",
             currentUser: null,
-            uid: ""
+            uid: "",
+            name: "",
+            image: "https://www.finearttips.com/wp-content/uploads/2010/05/avatar.jpg"
         }
     }
 
@@ -30,6 +31,7 @@ class App extends Component {
             loggedIn: true,
             currentUser: user,
             uid: user.uid,
+            name: user.displayName,
             image: user.photoURL
           })
         } else {
@@ -37,6 +39,7 @@ class App extends Component {
             loggedIn: false,
             currentUser: null,
             uid: null,
+            name: null,
             image: "https://www.finearttips.com/wp-content/uploads/2010/05/avatar.jpg"
           })
         }
