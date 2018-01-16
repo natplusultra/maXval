@@ -6,7 +6,7 @@ import "./SliderCard.css";
 
 class SliderCard extends Component {
     state = {
-        sliderValue: 50
+        sliderValue: 5
     };
 
     handleSlider = (event, value) => {
@@ -18,7 +18,7 @@ class SliderCard extends Component {
             <div>
                 <Slider
                     min={0}
-                    max={100}
+                    max={10}
                     step={1}
                     value={this.state.sliderValue}
                     onChange={this.handleSlider}
@@ -27,7 +27,7 @@ class SliderCard extends Component {
                 <p>
                     <span>{"Rating: "}</span>
                     <span>{this.state.sliderValue}</span>
-                    <span>{" from a range of 0 to 100."}</span>
+                    <span>{" from a range of 0 to 10."}</span>
                 </p>
             </div>
         );

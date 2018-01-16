@@ -52,7 +52,9 @@ class ProductUpload extends Component {
         case 1:
             return (
             <div>
-                <TextField style={{marginTop: 0}} floatingLabelText="Ad group name" />
+                <TextField style={{marginTop: 0, marginRight: "40px"}} floatingLabelText="Product name" />
+                <TextField style={{marginTop: 0}} floatingLabelText="Location" />
+                <TextField style={{marginTop: 0}} floatingLabelText="Description" />
                 <p>
                 Please enter the product name, location, and a short description. When you have entered the correct information, please click Next to continue.
                 </p>

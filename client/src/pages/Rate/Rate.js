@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import {Card, CardTitle, CardText} from "material-ui/Card";
 import TextField from "material-ui/TextField";
 import ProductCard from "../../components/ProductCard";
-import SliderCard from "../../components/SliderCard";
+// import SliderCard from "../../components/SliderCard";
+import RatingPanel from "../../components/RatingPanel";
 import "./Rate.css";
 
 class Rate extends Component {
@@ -54,41 +55,7 @@ class Rate extends Component {
                             />
                         </div>
                         <div className="col s12 l6">
-                            <Card>
-                                <CardTitle 
-                                    title="Quality" 
-                                    style={{padding: "20px 20px 0px 20px"}} 
-                                />
-                                <CardText style={{padding: "0px 20px 10px 20px"}}>
-                                    <SliderCard/>
-                                </CardText>
-                           </Card>
-                           <Card>
-                                <CardTitle 
-                                    title="Appeal" 
-                                    style={{padding: "20px 20px 0px 20px"}} 
-                                />
-                                <CardText style={{padding: "0px 20px 10px 20px"}}>
-                                    <SliderCard/>
-                                </CardText>
-                           </Card>
-                           <Card>
-                                <CardTitle 
-                                    title="Value" 
-                                    style={{padding: "20px 20px 0px 20px"}} 
-                                />
-                                <CardText style={{padding: "0px 20px 10px 20px"}}>
-                                    What is the maximum you would pay for this product?
-                                    <br/>
-                                    <TextField
-                                        hintText="Maximum value"
-                                        floatingLabelText="Price"
-                                        type="Maximum value"
-                                    />
-                                    <br/>
-                                    <a className="waves-effect waves-light btn">Submit Rating</a>
-                                </CardText>
-                           </Card>
+                            <RatingPanel />
                         </div>
                     </div>
                 ))}
