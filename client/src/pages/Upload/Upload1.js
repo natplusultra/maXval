@@ -40,7 +40,7 @@ const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dfkkuo5j8/image/upload';
 // Image Upload handler
 
   handleImageUpload(file) {
-    let upload = request.post(CLOUDINARY_UPLOAD_URL)
+    let upload = request.post(CLOUDINARY_URL)
                      .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
                      .field('file', file);
 
