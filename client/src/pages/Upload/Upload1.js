@@ -9,13 +9,13 @@ import Dropzone from 'react-dropzone';
 import request from 'superagent';
 
 
-
+// Setting Cloudinary Presets
 const CLOUDINARY_UPLOAD_PRESET = 'z3tji56i';
 const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dfkkuo5j8/image/upload';
 
 
   // Setting our component's initial state
-  export default class Upload1 extends React.Component {
+  export default class Upload extends React.Component {
   constructor(props) {
     super(props);
 
@@ -32,6 +32,8 @@ const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dfkkuo5j8/image/upload';
 
     this.handleImageUpload(files[0]);
   }
+
+// Image Upload handler
 
   handleImageUpload(file) {
     let upload = request.post(CLOUDINARY_UPLOAD_URL)
