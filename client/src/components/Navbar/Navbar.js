@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Avatar from 'material-ui/Avatar';
+import Avatar from "material-ui/Avatar";
 import "./Navbar.css";
 
 const Navbar = props => (

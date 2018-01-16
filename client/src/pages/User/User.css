@@ -1,0 +1,18 @@
+.wrapper {
+    margin: 40px 85px;
+}
+
+.grid-div {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 40px;
+}
+
+.greeting {
+    margin-left: 30px;
+    font-size: 30px;
+}
+
+.upload-text {
+    text-align: center;
+}

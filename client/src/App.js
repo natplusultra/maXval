@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import getMuiTheme from "material-ui/styles/getMuiTheme";
+import {teal300} from "material-ui/styles/colors";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Rate from "./pages/Rate";
@@ -10,6 +12,12 @@ import Upload from "./pages/Upload";
 import User from "./pages/User";
 import { app, base } from './base';
 
+const muiTheme = getMuiTheme({
+  palette: {
+    primary1Color: teal300,
+    primary2Color: teal300
+  }
+});
 
 class App extends Component {
     // sets the initial values
@@ -89,7 +97,7 @@ class App extends Component {
       }
         return (
             <Router>
-                <MuiThemeProvider>
+                <MuiThemeProvider muiTheme={muiTheme}>
                     <div>
                         <Navbar 
                             loggedIn={this.state.loggedIn}
@@ -109,7 +117,9 @@ class App extends Component {
                               return <Login setCurrentUser={this.setCurrentUser} {...props} />
                             }} />
                             <Route exact path="/logout" component={Logout} />
-                            <Route exact path="/user/:id" component={User} />
+                            <Route exact path="/user/:id" render={(props) => {
+                              return <User user={user} {...props} />
+                            }} />
                             {/* <Route exact path="/product/:id" component={Product} /> */}
                         </Switch>
                     </div>
