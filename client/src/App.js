@@ -52,6 +52,7 @@ class App extends Component {
               loggedIn: true,
               currentUser: user,
               uid: user.uid,
+              name: user.displayName,
               image: user.photoURL
             })
           } else {

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import { Toaster, Intent } from '@blueprintjs/core'
-import { app, facebookProvider } from '../../base'
+import { app, facebookProvider, googleProvider } from '../../base'
+
 
 const loginStyles = {
   width: "90%",
@@ -16,6 +17,7 @@ class Login extends Component {
   constructor(props) {
     super(props)
     this.authWithFacebook = this.authWithFacebook.bind(this)
+    this.authWithGoogle = this.authWithGoogle.bind(this)
     this.authWithEmailPassword = this.authWithEmailPassword.bind(this)
     this.state = {
       redirect: false
@@ -27,6 +29,18 @@ class Login extends Component {
       .then((user, error) => {
         if (error) {
           this.toaster.show({ intent: Intent.DANGER, message: "Unable to sign in with Facebook" })
+        } else {
+          this.props.setCurrentUser(user)
+          this.setState({ redirect: true })
+        }
+      })
+  }
+
+  authWithGoogle() {
+    app.auth().signInWithPopup(googleProvider)
+      .then((user, error) => {
+        if (error) {
+          this.toaster.show({ intent: Intent.DANGER, message: "Unable to sign in with Google" })
         } else {
           this.props.setCurrentUser(user)
           this.setState({ redirect: true })
@@ -76,12 +90,11 @@ class Login extends Component {
     return (
       <div style={loginStyles}>
         <Toaster ref={(element) => { this.toaster = element }} />
-        <button style={{width: "100%"}} className="pt-button pt-intent-primary" onClick={() => { this.authWithFacebook() }}>Log In with Facebook</button>
-        <hr style={{marginTop: "10px", marginBottom: "10px"}}/>
+
         <form onSubmit={(event) => { this.authWithEmailPassword(event) }} ref={(form) => { this.loginForm = form }}>
           <div style={{marginBottom: "10px"}} className="pt-callout pt-icon-info-sign">
-            <h5>Note</h5>
-            If you don't have an account already, this form will create your account.
+            <h5>Log-In</h5>
+            Create Account or Log In.
           </div>
           <label className="pt-label">
             Email
@@ -93,7 +106,14 @@ class Login extends Component {
           </label>
           <input style={{width: "100%"}} type="submit" className="pt-button pt-intent-primary" value="Log In"></input>
         </form>
+
+        <hr style={{marginTop: "10px", marginBottom: "10px"}}/>
+        <button style={{width: "100%"}} className="pt-button pt-intent-primary" onClick={() => { this.authWithFacebook() }}>Log In with Facebook</button>
+        <button style={{width: "100%"}} className="pt-button pt-intent-primary" onClick={() => { this.authWithGoogle() }}>Log In with Google</button> 
+
       </div>
+
+
     )
   }
 }

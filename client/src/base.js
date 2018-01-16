@@ -10,8 +10,9 @@ const config = {
     messagingSenderId: "303231343749"
 };
 
-const app = firebase.initializeApp(config)
-const base = Rebase.createClass(app.database())
-const facebookProvider = new firebase.auth.FacebookAuthProvider()
+const app = firebase.initializeApp(config);
+const base = Rebase.createClass(app.database());
+const facebookProvider = new firebase.auth.FacebookAuthProvider();
+const googleProvider = new firebase.auth.GoogleAuthProvider();
 
-export { app, base, facebookProvider }
+export { app, base, facebookProvider, googleProvider }
