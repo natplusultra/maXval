@@ -9,7 +9,7 @@
     "firebase": "^4.8.1",
     "material-ui": "^0.20.0",
     "mongoose": "^5.0.0-rc2",
-    "re-base": "^3.2.1",
+    "re-base": "^3.2.2",
     "react": "^16.2.0",
     "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^16.2.0",
