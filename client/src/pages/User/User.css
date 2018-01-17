@@ -16,3 +16,14 @@
 .upload-text {
     text-align: center;
 }
+
+.avatar-row {
+    margin-bottom: 0px;
+}
+
+.products-header {
+    background-color: rgb(217, 219, 221);
+    margin-top: 20px;
+    padding-top: 2px;
+    padding-left: 20px;
+}

@@ -1,18 +1,71 @@
 import React, { Component } from "react";
+import API from "../../utils/API";
 import { Step, Stepper, StepLabel } from "material-ui/Stepper";
 import RaisedButton from "material-ui/RaisedButton";
 import FlatButton from "material-ui/FlatButton";
 import ExpandTransition from "material-ui/internal/ExpandTransition";
 import TextField from "material-ui/TextField";
-import ImageDrop from "../ImageDrop";
+import Dropzone from "react-dropzone";
+import request from "superagent";
 import "./ProductUpload.css";
+
+// sets the Cloudinary variables
+const CLOUDINARY_UPLOAD_PRESET = "z3tji56i";
+const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/dfkkuo5j8/image/upload";
 
 class ProductUpload extends Component {
 
-    state = {
-        loading: false,
-        finished: false,
-        stepIndex: 0,
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            loading: false,
+            finished: false,
+            stepIndex: 0,
+            currentUserID: "",
+            itemTitle: "",
+            itemLocation: "",
+            itemDescription: "",
+            uploadedFile: null,
+            uploadedFileCloudinaryUrl: ""
+        };
+
+        this.handleInputChange = this.handleInputChange.bind(this);
+    }
+    
+    onImageDrop(files) {
+        this.setState({
+            uploadedFile: files[0]
+        });
+
+        this.handleImageUpload(files[0]);
+    }
+
+    // image upload handler
+    handleImageUpload(file) {
+        let upload = request.post(CLOUDINARY_URL)
+        .field("upload_preset", CLOUDINARY_UPLOAD_PRESET)
+        .field("file", file);
+
+        upload.end((err, response) => {
+            if (err) {
+                console.log(err);
+            }
+
+            if (response.body.secure_url !== "") {
+                console.log(response.body.secure_url)
+                this.setState({
+                    uploadedFileCloudinaryUrl: response.body.secure_url
+                });
+            }
+        });
+    }
+
+    handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState({
+            [name]: value
+        });
     };
 
     dummyAsync = (cb) => {
@@ -47,18 +100,51 @@ class ProductUpload extends Component {
         case 0:
             return (
             <div>
-                <ImageDrop />
+                <div className="row">
+                    <div className="col s6 uploadDiv">
+                        <Dropzone
+                            onDrop={this.onImageDrop.bind(this)}
+                            multiple={false}
+                            accept="image/*">
+                            <div className="dropzone-text"> Drop an image or click to select a file to upload.</div>
+                        </Dropzone>
+                    </div>
+                    <div className="col 6">
+                        {this.state.uploadedFileCloudinaryUrl === "" ? null :
+                        <div className="imageDiv">
+                            <img className="imageThumb" src={this.state.uploadedFileCloudinaryUrl} alt="product" />
+                        </div>}
+                    </div>
+                </div>
                 <p>
-                Please drag and drop an image of your product into the image uploader. When you are done uploading an image, please click Next to continue.
+                Please drag and drop an image of your product into the image uploader. When you are done selecting an image, please click Next to continue.
                 </p>
             </div>
             );
         case 1:
             return (
             <div>
-                <TextField style={{marginTop: 0, marginRight: "40px"}} floatingLabelText="Product name" />
-                <TextField style={{marginTop: 0}} floatingLabelText="Location" />
-                <TextField style={{marginTop: 0}} floatingLabelText="Description" />
+                <TextField 
+                    name="itemTitle" 
+                    value={this.state.itemTitle} 
+                    onChange={this.handleInputChange} 
+                    style={{marginTop: 0, marginRight: "40px"}} 
+                    floatingLabelText="Product name" 
+                />
+                <TextField 
+                    name ="itemLocation" 
+                    value={this.state.itemLocation} 
+                    onChange={this.handleInputChange} 
+                    style={{marginTop: 0}} 
+                    floatingLabelText="Location" 
+                />
+                <TextField 
+                    name="itemDescription" 
+                    value={this.state.itemDescription} 
+                    onChange={this.handleInputChange} 
+                    style={{marginTop: 0}} 
+                    floatingLabelText="Description" 
+                />
                 <p>
                 Please enter the product name, location, and a short description. When you have entered the correct information, please click Next to continue.
                 </p>
@@ -71,13 +157,25 @@ class ProductUpload extends Component {
             </p>
             );
         default:
-            return 'You\'re a long way from home sonny jim!';
+            return "You're a long way from home sonny jim!";
         }
     }
 
+    saveItem = () => {
+        API.saveItem({
+            img: this.state.uploadedFileCloudinaryUrl,
+            name: this.state.itemTitle,
+            description: this.state.itemDescription,
+            location: this.state.itemLocation,
+            ownerId: localStorage.getItem("user-id")
+        })
+        .then(res => console.log(res))
+        .catch(err => console.log(err));
+    };
+
     renderContent() {
         const {finished, stepIndex} = this.state;
-        const contentStyle = {margin: '0 16px', overflow: 'hidden'};
+        const contentStyle = {margin: "0 16px", overflow: "hidden"};
 
         if (finished) {
             return (
@@ -108,9 +206,9 @@ class ProductUpload extends Component {
                     style={{marginRight: 12}}
                 />
                 <RaisedButton
-                    label={stepIndex === 2 ? 'Finish' : 'Next'}
+                    label={stepIndex === 2 ? "Finish" : "Next"}
                     primary={true}
-                    onClick={this.handleNext}
+                    onClick={stepIndex === 2 ? () => this.saveItem() : this.handleNext}
                     style={{backgroundColor: "#5dbbb6"}}
                 />
                 </div>
@@ -122,7 +220,7 @@ class ProductUpload extends Component {
         const {loading, stepIndex} = this.state;
 
         return (
-            <div style={{width: '100%', maxWidth: 700, margin: 'auto'}}>
+            <div style={{width: "100%", maxWidth: 700, margin: "auto"}}>
                 <Stepper activeStep={stepIndex}>
                 <Step>
                     <StepLabel>Upload product image</StepLabel>

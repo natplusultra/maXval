@@ -38,7 +38,7 @@ class User extends Component {
         console.log(this.props.user);
         return (
             <div className="wrapper"> 
-                <div className="row">
+                <div className="row avatar-row">
                     <Avatar src={this.props.user.image} size={60} style={{verticalAlign: "middle"}} />
                     <span className="greeting"> Hello, {this.props.user.name}!</span>
                 </div>
@@ -47,7 +47,7 @@ class User extends Component {
                         <h5 className="upload-text">Add a New Product</h5>
                         <ProductUpload />
                     </div>
-                <div className="row">
+                <div className="row products-header">
                     <h4>Your Products</h4>
                     <p>Click on a product to view ratings and stats.</p>
                 </div>

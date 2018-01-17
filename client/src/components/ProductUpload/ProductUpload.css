@@ -1,0 +1,15 @@
+.uploadDiv {
+    display: inline;
+}
+
+.imageDiv {
+    display: inline;
+}
+
+.imageThumb {
+    height: 200px;
+}
+
+.dropzone-text {
+    margin: 15px;
+}
