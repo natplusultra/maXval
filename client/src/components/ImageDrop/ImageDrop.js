@@ -49,8 +49,8 @@ class ImageDrop extends Component {
 
     render() {
         return (
-            <div className="container">
-                <div className="uploadDiv">
+            <div className="row container">
+                <div className="col s6 uploadDiv">
                     <Dropzone
                         onDrop={this.onImageDrop.bind(this)}
                         multiple={false}
@@ -58,7 +58,7 @@ class ImageDrop extends Component {
                         <div className="dropzone-text"> Drop an image or click to select a file to upload.</div>
                     </Dropzone>
                 </div>
-                <div>
+                <div className="col 6">
                     {this.state.uploadedFileCloudinaryUrl === '' ? null :
                     <div className="imageDiv">
                         <img className="imageThumb" src={this.state.uploadedFileCloudinaryUrl} alt="product" />
