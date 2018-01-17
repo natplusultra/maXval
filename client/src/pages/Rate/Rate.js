@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import {Card, CardTitle, CardText} from "material-ui/Card";
-import TextField from "material-ui/TextField";
 import ProductCard from "../../components/ProductCard";
-// import SliderCard from "../../components/SliderCard";
 import RatingPanel from "../../components/RatingPanel";
+import API from "../../utils/API";
 import "./Rate.css";
 
 class Rate extends Component {
@@ -36,6 +34,18 @@ class Rate extends Component {
             }
         ]
     }
+
+    // loads products
+    // componentDidMount() {
+    //     this.loadProducts();
+    // }
+
+    // loads all products in the database
+    // loadProducts = () => {
+    //     API.getAllItems()
+    //     .then(res => this.setState({ products: res.data }))
+    //     .catch(err => console.log(err));
+    // };
 
     render() {
         console.log(this.props.user);

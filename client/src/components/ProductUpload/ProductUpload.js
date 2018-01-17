@@ -4,6 +4,7 @@ import RaisedButton from "material-ui/RaisedButton";
 import FlatButton from "material-ui/FlatButton";
 import ExpandTransition from "material-ui/internal/ExpandTransition";
 import TextField from "material-ui/TextField";
+import ImageDrop from "../ImageDrop";
 import "./ProductUpload.css";
 
 class ProductUpload extends Component {
@@ -45,9 +46,12 @@ class ProductUpload extends Component {
         switch (stepIndex) {
         case 0:
             return (
-            <p>
+            <div>
+                <ImageDrop />
+                <p>
                 Please drag and drop an image of your product into the image uploader. When you are done uploading an image, please click Next to continue.
-            </p>
+                </p>
+            </div>
             );
         case 1:
             return (
