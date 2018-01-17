@@ -1,6 +1,8 @@
 import axios from "axios";
 
 export default {
+
+  // **ITEMS**/
   // gets all products
   getAllItems: function() {
     return axios.get("/api/item");
@@ -21,6 +23,8 @@ export default {
   deleteItem: function(id) {
     return axios.delete("/api/item/" + id);
   },
+
+  //**REVIEWS**/
   // gets all reviews for a particular product by owner id
   getOwnerReviews: function(id) {
     return axios.get("/api/item/owner/" + id);
@@ -64,7 +68,29 @@ export default {
   // deletes a review by item id
   deleteItemReview: function(id) {
     return axios.delete("/api/review/item/" + id);
+  },
+
+  // **USERS** //
+  // gets all users
+  getAllUsers: function(){
+    return axios.get("/api/user");
+  },
+  //creates a user in the database
+  saveUser: function(userData){
+    return axios.post("/api/user", userData);
+  },
+  //get user by id
+  getUser: function(id){
+    return axios.get("/api/user" + id);
+  },
+  updateUser: function(id, userData){
+    return axios.put("/api/user" + id, userData)
+  },
+  deleteUser: function(id){
+    return axios.delete("/api/user" + id)
   }
+
+
   // saves images to MongoDB 
   // uploadImage: function(imageData) {
   //   return axios.post("/api/upload", imageData);
