@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import { Toaster, Intent } from '@blueprintjs/core'
 import { app, facebookProvider, googleProvider } from '../../base'
+import API from "../../utils/API";
 
 
 const loginStyles = {
@@ -24,6 +25,22 @@ class Login extends Component {
     }
   }
 
+  saveToDatabase(user){
+    API.saveUser({
+      uid: user.user.uid,
+      name: user.user.displayName,
+      email: user.user.email,
+      image: user.user.photoURL
+    })
+    .then(res => console.log(res))
+    .catch(err => {
+      if(err.response.status === 422) {
+      } else {
+        console.log(err.response)
+      }
+    });
+  }
+
   authWithFacebook() {
     app.auth().signInWithPopup(facebookProvider)
       .then((user, error) => {
@@ -32,6 +49,7 @@ class Login extends Component {
         } else {
           this.props.setCurrentUser(user)
           this.setState({ redirect: true })
+          {this.saveToDatabase(user)}
         }
       })
   }
@@ -44,6 +62,7 @@ class Login extends Component {
         } else {
           this.props.setCurrentUser(user)
           this.setState({ redirect: true })
+          {this.saveToDatabase(user)}
         }
       })
   }
@@ -73,6 +92,7 @@ class Login extends Component {
           this.loginForm.reset()
           this.props.setCurrentUser(user)
           this.setState({redirect: true})
+          {this.saveToDatabase(user)}
         }
       })
       .catch((error) => {
