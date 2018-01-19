@@ -8,7 +8,6 @@ import Home from "./pages/Home";
 import Rate from "./pages/Rate";
 import Login from "./pages/Login";
 import Logout from './pages/Logout';
-import Upload from "./pages/Upload";
 import User from "./pages/User";
 import { app, base } from './base';
 
@@ -109,9 +108,6 @@ class App extends Component {
                             <Route exact path="/" component={Home} />
                             <Route exact path="/rate" render={(props) => {
                               return <Rate user={user} {...props} />
-                            }} />
-                            <Route exact path="/upload" render={(props) => {
-                              return <Upload user={user} {...props} />
                             }} />
                             <Route exact path="/login" render={(props) => {
                               return <Login setCurrentUser={this.setCurrentUser} {...props} />

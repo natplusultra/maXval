@@ -20,7 +20,7 @@ class Rate extends Component {
     }
 
     handleQualitySlider = (value) => {
-        console.log(value);
+        console.log(this.state.products);
         this.setState({
             qualitySlider: value
         });
@@ -28,14 +28,12 @@ class Rate extends Component {
 
 
     handleAppealSlider = (value) => {
-        console.log(value);
         this.setState({
             appealSlider: value
         });
     };
 
     handleValueSlider = (value) => {
-        console.log(value);
         this.setState({
             valueSlider: value
         });
