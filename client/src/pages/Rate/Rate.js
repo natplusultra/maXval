@@ -5,11 +5,44 @@ import API from "../../utils/API";
 import "./Rate.css";
 
 class Rate extends Component {
-    state = {
-        products: [],
-        prodIndex: 0
-        
+    constructor(props) {
+        super(props);
+        this.handleQualitySlider = this.handleQualitySlider.bind(this);
+        this.handleAppealSlider = this.handleAppealSlider.bind(this);
+        this.handleValueSlider = this.handleValueSlider.bind(this);
+        this.state = {
+            products: [],
+            prodIndex: 0,
+            qualitySlider: 5,
+            appealSlider: 5,
+            valueSlider: 5
+        }
     }
+
+    handleQualitySlider = (value) => {
+        console.log(this.state.products);
+        this.setState({
+            qualitySlider: value
+        });
+    };
+
+
+    handleAppealSlider = (value) => {
+        this.setState({
+            appealSlider: value
+        });
+    };
+
+    handleValueSlider = (value) => {
+        this.setState({
+            valueSlider: value
+        });
+    };
+    
+    submitProduct = () => {
+
+    }
+
 
     //loads products
     componentDidMount() {
@@ -26,14 +59,11 @@ class Rate extends Component {
     };
 
     render() {
-        console.log(this.props.user);
         return (
             <div className="container">
                 {this.state.products.map(product => (
-                    
                     <div className="row productDiv">
-                        <div className="col s12 l6">
-                            {console.log(product)}             
+                        <div className="col s12 l6">          
                             <ProductCard 
                                 productTitle={product.name}
                                 productDesc={product.description}
@@ -45,7 +75,14 @@ class Rate extends Component {
                             />
                         </div>
                         <div className="col s12 l6">
-                            <RatingPanel />
+                            <RatingPanel
+                                qualitySlider={this.state.qualitySlider}
+                                appealSlider={this.state.appealSlider}
+                                valueSlider={this.state.valueSlider}
+                                handleQualitySlider={this.handleQualitySlider}
+                                handleAppealSlider={this.handleAppealSlider}
+                                handleValueSlider={this.handleValueSlider}
+                            />
                         </div>
                     </div>
                 ))}
