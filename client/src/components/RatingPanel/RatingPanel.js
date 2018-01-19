@@ -1,10 +1,20 @@
 import React from "react";
 import {Card, CardTitle, CardText} from "material-ui/Card";
-import SliderCard from "../SliderCard";
+// import SliderCard from "../SliderCard";
 import TextField from "material-ui/TextField";
 import "./RatingPanel.css";
+import Slider from 'material-ui/Slider';
+
+
+
+
 
 const RatingPanel = () => {
+
+    // handleSlider = (event, value) => {
+    //     this.setState({sliderValue: value});
+    // };
+
     return (
         <div>
             <Card>
@@ -13,7 +23,21 @@ const RatingPanel = () => {
                     style={{padding: "20px 20px 0px 20px"}} 
                 />
                 <CardText style={{padding: "0px 20px 10px 20px"}}>
-                    <SliderCard/>
+                    <div>
+                        <Slider
+                            min={0}
+                            max={10}
+                            step={1}
+                            // value={this.state.sliderValue}
+                            // onChange={this.handleSlider}
+                            style={{margin: "0px"}}
+                        />
+                        <p>
+                            <span>{"Rating: "}</span>
+                            {/* <span>{this.state.sliderValue}</span> */}
+                            <span>{" from a range of 0 to 10."}</span>
+                        </p>
+                    </div>
                 </CardText>
             </Card>
             <Card>
@@ -22,7 +46,21 @@ const RatingPanel = () => {
                     style={{padding: "20px 20px 0px 20px"}} 
                 />
                 <CardText style={{padding: "0px 20px 10px 20px"}}>
-                    <SliderCard/>
+                    <div>
+                        <Slider
+                            min={0}
+                            max={10}
+                            step={1}
+                            // value={this.state.sliderValue}
+                            // onChange={this.handleSlider}
+                            style={{margin: "0px"}}
+                        />
+                        <p>
+                            <span>{"Rating: "}</span>
+                            {/* <span>{this.state.sliderValue}</span> */}
+                            <span>{" from a range of 0 to 10."}</span>
+                        </p>
+                    </div>
                 </CardText>
             </Card>
             <Card>
@@ -33,11 +71,21 @@ const RatingPanel = () => {
                 <CardText style={{padding: "0px 20px 10px 20px"}}>
                     What is the maximum you would pay for this product?
                     <br/>
-                    <TextField
-                        hintText="Maximum value"
-                        floatingLabelText="Price"
-                        type="Maximum value"
-                    />
+                    <div>
+                        <Slider
+                            min={0}
+                            max={10}
+                            step={1}
+                            // value={this.state.sliderValue}
+                            // onChange={this.handleSlider}
+                            style={{margin: "0px"}}
+                        />
+                        <p>
+                            <span>{"Rating: "}</span>
+                            {/* <span>{this.state.sliderValue}</span> */}
+                            <span>{" from a range of 0 to 10."}</span>
+                        </p>
+                    </div>
                     <br/>
                     <a className="waves-effect waves-light btn">Submit Rating</a>
                 </CardText>

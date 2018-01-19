@@ -30,8 +30,10 @@ class Rate extends Component {
         return (
             <div className="container">
                 {this.state.products.map(product => (
+                    
                     <div className="row productDiv">
-                        <div className="col s12 l6">             
+                        <div className="col s12 l6">
+                            {console.log(product)}             
                             <ProductCard 
                                 productTitle={product.name}
                                 productDesc={product.description}
