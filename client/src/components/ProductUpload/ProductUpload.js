@@ -95,6 +95,17 @@ class ProductUpload extends Component {
         }
     };
 
+    resetState = () => {
+        this.setState({
+            currentUserID: "",
+            itemTitle: "",
+            itemLocation: "",
+            itemDescription: "",
+            uploadedFile: null,
+            uploadedFileCloudinaryUrl: ""
+        });
+    }
+
     getStepContent(stepIndex) {
         switch (stepIndex) {
         case 0:
@@ -170,6 +181,8 @@ class ProductUpload extends Component {
             ownerId: localStorage.getItem("user-id")
         })
         .then(res => console.log(res))
+        .then(this.handleNext())
+        .then(this.resetState())
         .catch(err => console.log(err));
     };
 
