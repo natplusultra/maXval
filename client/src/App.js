@@ -8,10 +8,7 @@ import Home from "./pages/Home";
 import Rate from "./pages/Rate";
 import Login from "./pages/Login";
 import Logout from './pages/Logout';
-<<<<<<< HEAD
 import Product from "./pages/Product";
-=======
->>>>>>> 88d64fbc04646642d4984e6ef85f8c1d97006a4e
 import User from "./pages/User";
 import { app, base } from './base';
 
