@@ -5,7 +5,7 @@ import "./ProductCard.css";
 const ProductCard = props => (
     <Card>
         <CardMedia
-            overlay={<CardTitle title={props.productTitle} subtitle={props.userName} />}>
+            overlay={<CardTitle title={props.productTitle} subtitle={props.userName}  />}>
             <img src={props.productImage} alt="" />
         </CardMedia>
         <CardHeader
