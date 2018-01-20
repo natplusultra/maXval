@@ -3,6 +3,8 @@ import {Card, CardTitle, CardText} from "material-ui/Card";
 import TextField from "material-ui/TextField";
 import "./RatingPanel.css";
 import Slider from 'material-ui/Slider';
+import RaisedButton from 'material-ui/RaisedButton';
+
 
 
 class RatingPanel extends Component {
@@ -11,6 +13,7 @@ class RatingPanel extends Component {
         this.handleQualitySlider = this.handleQualitySlider.bind(this);
         this.handleAppealSlider = this.handleAppealSlider.bind(this);
         this.handleValueSlider = this.handleValueSlider.bind(this);
+        this.saveReview = this.saveReview.bind(this);
         console.log(props);
     }
 
@@ -24,6 +27,10 @@ class RatingPanel extends Component {
 
     handleValueSlider(event, value){
         this.props.handleValueSlider(value);
+    }
+
+    saveReview(){
+        this.props.saveReview();
     }
 
     render () {
@@ -102,7 +109,7 @@ class RatingPanel extends Component {
                             </p>
                         </div>
                         <br/>
-                        <a className="waves-effect waves-light btn">Submit Rating</a>
+                        <RaisedButton onClick={this.saveReview} label="Submit Rating" backgroundColor="#4db6ac" labelColor="#ffffff" />
                     </CardText>
                 </Card>
             </div>
