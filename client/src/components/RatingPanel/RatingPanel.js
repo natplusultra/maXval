@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {Card, CardTitle, CardText} from "material-ui/Card";
-import TextField from "material-ui/TextField";
 import "./RatingPanel.css";
 import Slider from 'material-ui/Slider';
 import RaisedButton from 'material-ui/RaisedButton';

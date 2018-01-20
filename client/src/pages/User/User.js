@@ -2,22 +2,22 @@ import React, { Component } from "react";
 import Avatar from "material-ui/Avatar";
 import ProductCard from "../../components/ProductCard";
 import ProductUpload from "../../components/ProductUpload";
-import { Link } from "react-router-dom";
 import API from "../../utils/API";
 import "./User.css";
 
 class User extends Component {
     state = {
-        products: []
+        products: [],
+        uid: this.props.match.params.id
     }
-
+    
     // loads user's products
     componentDidMount() {
-        this.loadProducts();
+        this.loadProducts(this.state.uid);
     }
 
-    loadProducts = () => {
-        API.getAllItems()
+    loadProducts = (ownerId) => {
+        API.getItemByOwner(ownerId) 
         .then(res => {
             console.log(res)
             this.setState({ products: res.data })})
@@ -26,6 +26,7 @@ class User extends Component {
 
     render() {
         console.log(this.props.user);
+        console.log(this.state.uid);
         return (
             <div className="wrapper"> 
                 <div className="row avatar-row">

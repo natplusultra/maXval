@@ -23,6 +23,10 @@ export default {
   deleteItem: function(id) {
     return axios.delete("/api/item/" + id);
   },
+  // gets all products that belongs to a user by user id
+  getItemByOwner: function(id) {
+    return axios.get("/api/item/owner/" + id);
+  },
 
   //**REVIEWS**/
   // gets all reviews for a particular product by owner id
