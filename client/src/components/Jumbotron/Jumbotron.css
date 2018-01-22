@@ -1,6 +1,6 @@
 .jumbotron {
     background-image: url("/images/roman-kraft-197672.jpg");
-    background-size: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
     height: 550px;
     color: white;

@@ -2,10 +2,14 @@
     margin: 0px 0px 0px 30px;
 }
 
-.navbar-fixed {
+.nav-wrapper {
     margin: 0px;
 }
 
 .avatar {
     margin: 0px 15px;
+}
+
+.brand-logo {
+    align-content: left;
 }

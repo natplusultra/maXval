@@ -4,7 +4,7 @@ import Avatar from "material-ui/Avatar";
 import "./Navbar.css";
 
 const Navbar = props => (
-    <div className="navbar-fixed">
+    <div className="nav-wrapper">
         <nav className="site-navbar">
             <div className="nav-wrapper">
                 <Link to="/" className="brand-logo"><i className="material-icons">thumbs_up_down</i> maXval</Link>

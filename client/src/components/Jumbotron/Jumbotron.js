@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import "./Jumbotron.css";
 
 const Jumbotron = () =>
-  <div className="jumbotron">
-    <div className="text-div">
+  <div className="row jumbotron">
+    <div className="col s12 l12 text-div">
         <h1 className="title">maXval</h1>
         <br />
         <p className="tagline">A crowdsourced valuation tool for your products.</p>
