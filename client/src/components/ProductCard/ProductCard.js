@@ -14,7 +14,7 @@ const ProductCard = props => (
             avatar={props.userImage}
         />
         <CardText
-           children={props.productDesc}
+            children={props.productDesc}
         />
     </Card>
 );
