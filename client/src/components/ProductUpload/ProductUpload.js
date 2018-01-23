@@ -183,6 +183,7 @@ class ProductUpload extends Component {
         .then(res => console.log(res))
         .then(this.handleNext())
         .then(this.resetState())
+        .then(() => this.props.loadProducts(this.props.uid))
         .catch(err => console.log(err));
     };
 

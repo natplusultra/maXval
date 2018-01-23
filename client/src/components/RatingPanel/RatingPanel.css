@@ -1,3 +1,7 @@
 .btn {
-background-color: #4db6ac
+    background-color: #4db6ac
+}
+
+.btn:hover {
+    background-color: rgb(228, 182, 55);
 }

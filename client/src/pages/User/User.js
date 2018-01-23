@@ -24,6 +24,12 @@ class User extends Component {
         .catch(err => console.log(err));
     };
 
+    deleteProduct = (productId) => {
+        API.deleteItem(productId)
+        .then(res => this.loadProducts(this.state.uid))
+        .catch(err => console.log(err));
+    };
+
     render() {
         console.log(this.props.user);
         console.log(this.state.uid);
@@ -36,7 +42,10 @@ class User extends Component {
                 <div className="row"></div>
                     <div className="col s12 l12">
                         <h5 className="upload-text">Add a New Product</h5>
-                        <ProductUpload />
+                        <ProductUpload 
+                            uid={this.state.uid}
+                            loadProducts={this.loadProducts}
+                        />
                     </div>
                 <div className="row products-header">
                     <h4>Your Products</h4>
@@ -44,17 +53,24 @@ class User extends Component {
                 </div>
                 <div className="row grid-div">
                     {this.state.products.map((product, i) => (
-                        <a href={`/product/${product._id}`} className="product-card">
-                            <ProductCard 
-                                key={i}
-                                productTitle={product.name}
-                                productDesc={product.description}
-                                productImage={product.img}
-                                userLocation={product.location}
-                                productID={product._id}
-                                style={{display: "inline"}}
-                            />
-                        </a>
+                        <div>
+                            <div className="product-card">
+                                <a href={`/product/${product._id}`} >
+                                    <ProductCard 
+                                        key={i}
+                                        productTitle={product.name}
+                                        productDesc={product.description}
+                                        productImage={product.img}
+                                        userLocation={product.location}
+                                        productID={product._id}
+                                        style={{display: "inline"}}
+                                    />
+                                </a>
+                            </div>
+                            <div className="delete-btn">
+                                <a className="waves-effect waves-light btn" onClick={() => {this.deleteProduct(product._id)}}>Delete</a>
+                            </div>
+                        </div>
                     ))}
                 </div>
             </div>
