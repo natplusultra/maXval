@@ -67,8 +67,8 @@ const cardChartOpts1 = {
 class User extends Component {
     state = {
         reviews: [],
-        //itemId: this.props.match.params.id
-        itemId: "5a5e6d2ce738f254a0b2a594",
+        itemId: this.props.match.params.id,
+        // itemId: "5a5e6d2ce738f254a0b2a594",
         qualityData: [],
         appealData: [],
         valueData:[]

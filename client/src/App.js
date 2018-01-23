@@ -117,7 +117,9 @@ class App extends Component {
                             <Route exact path="/user/:id" render={(props) => {
                               return <User user={user} {...props} />
                             }} />
-                            <Route exact path="/product" component={Product} />
+                            <Route exact path="/product/:id" render={(props) => {
+                              return <Product user={user} {...props} />
+                            }} />
                         </Switch>
                     </div>
                 </MuiThemeProvider>

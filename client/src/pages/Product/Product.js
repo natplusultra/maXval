@@ -21,8 +21,8 @@ class Dashboard extends Component {
       dropdownOpen: false,
       radioSelected: 2,
       reviews: [],
-      //itemId: this.props.match.params.id
-      itemId: "5a5e6d2ce738f254a0b2a594",
+      itemId: this.props.match.params.id,
+      // itemId: "5a5e6d2ce738f254a0b2a594",
       qualityRawData: [],
       qualityXAxix: [],
       qualityYAxix: [],
@@ -167,4 +167,4 @@ class Dashboard extends Component {
     }
   }
 
-export default Dashboard
+export default Dashboard;
