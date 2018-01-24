@@ -1,0 +1,38 @@
+.login-header {
+    text-align: center;
+}
+
+.login-text {
+    text-align: center;
+}
+
+h6 {
+    text-align: center;
+    margin: 20px 0px;
+}
+
+.signup-btn, .fb-btn, .google-btn {
+    padding: 10px 0px;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.signup-btn {
+    background-color: rgb(42, 190, 183);
+    color: white;
+}
+
+.google-btn {
+    margin-top: 10px;
+    background-color: #3496e6;
+    color: white;
+}
+
+.fb-btn {
+    background-color: #445fa8;
+    color: white;
+}
+
+.signup-btn:hover, .fb-btn:hover, .google-btn:hover {
+    opacity: 0.7;
+}

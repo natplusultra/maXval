@@ -3,15 +3,16 @@ import { Redirect } from 'react-router-dom'
 import { Toaster, Intent } from '@blueprintjs/core'
 import { app, facebookProvider, googleProvider } from '../../base'
 import API from "../../utils/API";
+import "./Login.css";
 
 
 const loginStyles = {
-  width: "90%",
-  maxWidth: "315px",
+  width: "100%",
+  maxWidth: "400px",
   margin: "20px auto",
-  border: "1px solid #ddd",
+  border: "4px solid #ddd",
   borderRadius: "5px",
-  padding: "10px"
+  padding: "30px"
 }
 
 class Login extends Component {
@@ -113,23 +114,24 @@ class Login extends Component {
 
         <form onSubmit={(event) => { this.authWithEmailPassword(event) }} ref={(form) => { this.loginForm = form }}>
           <div style={{marginBottom: "10px"}} className="pt-callout pt-icon-info-sign">
-            <h5>Log-In</h5>
-            Create Account or Log In.
+            <h5 className="login-header">Welcome to maXval!</h5>
+            <p className="login-text">Create an account</p>
           </div>
           <label className="pt-label">
             Email
-            <input style={{width: "100%"}} className="pt-input" name="email" type="email" ref={(input) => { this.emailInput = input }} placeholder="Email"></input>
+            <input style={{width: "100%"}} className="pt-input" name="email" type="email" ref={(input) => { this.emailInput = input }} ></input>
           </label>
           <label className="pt-label">
             Password
-            <input style={{width: "100%"}} className="pt-input" name="password" type="password" ref={(input) => { this.passwordInput = input }} placeholder="Password"></input>
+            <input style={{width: "100%"}} className="pt-input" name="password" type="password" ref={(input) => { this.passwordInput = input }} ></input>
           </label>
-          <input style={{width: "100%"}} type="submit" className="pt-button pt-intent-primary" value="Log In"></input>
+          <input style={{width: "100%"}} type="submit" className="signup-btn pt-button pt-intent-primary" value="Sign Up"></input>
         </form>
 
-        <hr style={{marginTop: "10px", marginBottom: "10px"}}/>
-        <button style={{width: "100%"}} className="pt-button pt-intent-primary" onClick={() => { this.authWithFacebook() }}>Log In with Facebook</button>
-        <button style={{width: "100%"}} className="pt-button pt-intent-primary" onClick={() => { this.authWithGoogle() }}>Log In with Google</button> 
+        <h6>OR</h6>
+        {/* <hr style={{marginTop: "20px", marginBottom: "20px"}}/> */}
+        <button style={{width: "100%"}} className="fb-btn pt-button pt-intent-primary" onClick={() => { this.authWithFacebook() }}>Log in with Facebook</button>
+        <button style={{width: "100%"}} className="google-btn pt-button pt-intent-primary" onClick={() => { this.authWithGoogle() }}>Log in with Google</button> 
 
       </div>
 
