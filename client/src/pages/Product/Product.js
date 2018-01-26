@@ -147,7 +147,8 @@ class Dashboard extends Component {
     }
 
   render() {
-    let chartData = {
+
+  	let chartData = {
       labels: this.state.XAxis,
       datasets: [
         {
@@ -160,7 +161,7 @@ class Dashboard extends Component {
           pointHighlightStroke: "rgba(220,220,220,1)",
           fill: true,
           //lineTension: 0.1,
-          backgroundColor: 'rgba(75,192,192,0.4)',
+          backgroundColor: convertHex(brandInfo, 10),
           borderColor: 'rgba(75,192,192,1)',
           borderCapStyle: 'butt',
           borderDash: [],
@@ -180,7 +181,7 @@ class Dashboard extends Component {
         {
           label: 'Appeal',
           fill: true,
-          borderColor: "#3e95cd",
+          borderColor: brandSuccess,
           fillColor: "#3e95cd",
           strokeColor: "rgba(220,220,220,1)",
           pointColor: "rgba(220,220,220,1)",
@@ -191,7 +192,8 @@ class Dashboard extends Component {
         },
         {
           label: 'Value',
-          borderColor: "#c45850",
+          borderColor: brandDanger,
+           borderDash: [8, 5],
           fill: true,
           data: this.state.valueYAxis
         }
