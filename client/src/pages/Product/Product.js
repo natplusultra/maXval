@@ -29,10 +29,7 @@ class Dashboard extends Component {
       radioSelected: 2,
       reviews: [],
       itemId: this.props.match.params.id,
-      productTitle: "Handmade Ceramic Vases",
-      productImage: "https://images.unsplash.com/photo-1481401908818-600b7a676c0d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e4fbdbf9370ddaf34f7e32c5e4d8765b&auto=format&fit=crop&w=2102&q=80",
-      userLocation: "San Diego",
-      productDesc: "blahblahblahblahblahblahblahblahblahblah",
+      product: [],
       XAxis: ["0", '1', '2', '3', '4', '5', '6', '7', "8", "9", "10"],
 
       qualityRawData: [],
@@ -56,6 +53,7 @@ class Dashboard extends Component {
       // loads user's products
     componentDidMount() {
         this.loadReviews(this.state.itemId);
+        this.loadProduct(this.state.itemId);
     }
 
     //Load reviews from API, and parse the reviews data
@@ -68,6 +66,16 @@ class Dashboard extends Component {
             //set the reviews state.
             this.setState({ reviews: res.data })})
         .catch(err => console.log(err));
+    };
+
+    // loads the product data
+    loadProduct = (itemId) => {
+      // API call to grab the product data by id
+      API.getItem(itemId)
+      .then(res => {
+        console.log(res)
+        this.setState({ product: res.data })})
+      .catch(err => console.log(err));
     };
 
     parseReviewData(arr) {
@@ -231,10 +239,10 @@ class Dashboard extends Component {
         <div className="row">
           <div className="col s6 m4">
             <ProductCard 
-              productTitle={this.state.productTitle}
-              productImage={this.state.productImage}
-              userLocation={this.state.userLocation}
-              productDesc={this.state.productDesc}
+              productTitle={this.state.product.name}
+              productImage={this.state.product.img}
+              userLocation={this.state.product.location}
+              productDesc={this.state.product.description}
             />
           </div>
           <div className="col s6 m8">
