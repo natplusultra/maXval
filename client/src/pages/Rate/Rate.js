@@ -16,7 +16,8 @@ class Rate extends Component {
             prodIndex: 0,
             qualitySlider: 5,
             appealSlider: 5,
-            valueSlider: 5
+            valueSlider: 5,
+            lastItem: false
         }
     }
 
@@ -57,6 +58,9 @@ class Rate extends Component {
 
     resetState = () => {
         if(this.state.products.length === this.state.prodIndex + 1) {
+            this.setState({
+                lastItem: true
+            }) 
         } else {
             this.setState({
                 qualitySlider: 5,
@@ -98,33 +102,38 @@ class Rate extends Component {
     }
     
         return (
+
+
             <div className="container">
-                {/* {this.state.products.map(product => ( */}
-                    <div className="row productDiv">
-                        <div className="col s12 l6">  
-                            <ProductCard 
-                                productTitle={name}
-                                productDesc={description}
-                                productImage={img}
-                                // userName={this.props.user.name}
-                                // userLocation={location}
-                                // userImage={this.props.user.image}
-                                style={{display: "inline-block"}}
-                            />
-                        </div>
-                        <div className="col s12 l6">
-                            <RatingPanel
-                                qualitySlider={this.state.qualitySlider}
-                                appealSlider={this.state.appealSlider}
-                                valueSlider={this.state.valueSlider}
-                                handleQualitySlider={this.handleQualitySlider}
-                                handleAppealSlider={this.handleAppealSlider}
-                                handleValueSlider={this.handleValueSlider}
-                                saveReview={this.saveReview}
-                            />
-                        </div>
+                {this.state.lastItem ? (
+                    <div>
+                        <h2 className="center"> Thank you for your responses.</h2>
                     </div>
-                 {/* ))}  */}
+                ) : (
+
+                    <div className="row productDiv">
+                    <div className="col s12 l6">  
+                        <ProductCard 
+                            productTitle={name}
+                            productDesc={description}
+                            productImage={img}
+                            style={{display: "inline-block"}}
+                        />
+                    </div>
+                    <div className="col s12 l6">
+                        <RatingPanel
+                            qualitySlider={this.state.qualitySlider}
+                            appealSlider={this.state.appealSlider}
+                            valueSlider={this.state.valueSlider}
+                            handleQualitySlider={this.handleQualitySlider}
+                            handleAppealSlider={this.handleAppealSlider}
+                            handleValueSlider={this.handleValueSlider}
+                            saveReview={this.saveReview}
+                        />
+                    </div>
+                </div> 
+                )}
+
             </div>
         )
     }
