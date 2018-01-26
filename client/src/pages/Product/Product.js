@@ -21,6 +21,36 @@ function convertHex(hex, opacity) {
   var result = 'rgba(' + r + ',' + g + ',' + b + ',' + opacity / 100 + ')';
   return result;
 }
+const mainChartOpts = {
+  maintainAspectRatio: false,
+  legend: {
+    display: true
+  },
+  scales: {
+    xAxes: [{
+      gridLines: {
+        drawOnChartArea: false,
+      }
+    }],
+    yAxes: [{
+      ticks: {
+        beginAtZero: true,
+        maxTicksLimit: 5,
+        stepSize: Math.ceil( 15 / 5),
+        max: 15
+      }
+    }]
+  },
+  elements: {
+    point: {
+      radius: 2,
+      hitRadius: 10,
+      hoverRadius: 4,
+      hoverBorderWidth: 3,
+    }
+  }
+}
+
 
 class Dashboard extends Component {
 
@@ -200,6 +230,7 @@ class Dashboard extends Component {
           label: 'Appeal',
           fill: true,
           borderColor: brandSuccess,
+          backgroundColor: convertHex(brandSuccess, 10),
           fillColor: "#3e95cd",
           strokeColor: "rgba(220,220,220,1)",
           pointColor: "rgba(220,220,220,1)",
@@ -211,6 +242,7 @@ class Dashboard extends Component {
         {
           label: 'Value',
           borderColor: brandDanger,
+          backgroundColor: convertHex(brandDanger, 10),
            borderDash: [8, 5],
           fill: true,
           data: this.state.valueYAxis
@@ -248,8 +280,8 @@ class Dashboard extends Component {
           <div className="col s6 m8">
             <div className="row">
               <div className="col s12 m12">
-                <div className="chart-wrapper px-3" style={{height:'300px',width:'600px'}}>
-                  <Line data={chartData} />
+                <div className="chart-wrapper px-3" style={{height: 300 + 'px', marginTop: 40 + 'px'}}>
+                  <Line data={chartData} options={mainChartOpts} height={100}/>
                 </div>
               </div>
             </div>
