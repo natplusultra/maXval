@@ -290,13 +290,13 @@ class Dashboard extends Component {
             <div className="row">
               <div className="col s12 m12">
                 <div className="col s6 l3">
-                  <CircularProgressbar percentage={this.state.qualityAvg * 10} className="progressbar-quality" />
+                  <CircularProgressbar percentage={Math.floor(this.state.qualityAvg * 10)} className="progressbar-quality" />
                 </div>
                 <div className="col s6 l3">
-                  <CircularProgressbar percentage={this.state.appealAvg * 10} className="progressbar-appeal"/>
+                  <CircularProgressbar percentage={Math.floor(this.state.appealAvg * 10)} className="progressbar-appeal"/>
                 </div>
                 <div className="col s6 l3">
-                  <CircularProgressbar percentage={this.state.valueAvg * 10} className="progressbar-value" />
+                  <CircularProgressbar percentage={Math.floor(this.state.valueAvg * 10)} className="progressbar-value" />
                 </div>
               </div>
             </div>
