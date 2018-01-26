@@ -4,6 +4,8 @@ import ProductCard from "../../components/ProductCard";
 import {Bar, Line, HorizontalBar} from 'react-chartjs-2';
 import MenuItem from 'material-ui/MenuItem';
 import API from "../../utils/API";
+import CircularProgressbar from 'react-circular-progressbar';
+
 
 // Colors
 const brandPrimary = '#20a8d8';
@@ -196,7 +198,7 @@ class Dashboard extends Component {
 
   render() {
 
-  	let chartData = {
+    let chartData = {
       labels: this.state.XAxis,
       datasets: [
         {
@@ -288,7 +290,13 @@ class Dashboard extends Component {
             <div className="row">
               <div className="col s12 m12">
                 <div className="col s6 l3">
-                  <HorizontalBar data= {horizontalBarData} />
+                  <CircularProgressbar percentage={this.state.qualityAvg * 10} className="progressbar-quality" />
+                </div>
+                <div className="col s6 l3">
+                  <CircularProgressbar percentage={this.state.appealAvg * 10} className="progressbar-appeal"/>
+                </div>
+                <div className="col s6 l3">
+                  <CircularProgressbar percentage={this.state.valueAvg * 10} className="progressbar-value" />
                 </div>
               </div>
             </div>
