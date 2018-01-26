@@ -3,7 +3,6 @@ import "./Product.css";
 import ProductCard from "../../components/ProductCard";
 import {Bar, Line, HorizontalBar} from 'react-chartjs-2';
 import MenuItem from 'material-ui/MenuItem';
-import Card from 'material-ui/Card'
 import API from "../../utils/API";
 
 // Colors
@@ -23,16 +22,17 @@ function convertHex(hex, opacity) {
   return result;
 }
 
-
-
 class Dashboard extends Component {
 
   state = {
       dropdownOpen: false,
       radioSelected: 2,
       reviews: [],
-      //itemId: this.props.match.params.id
       itemId: this.props.match.params.id,
+      productTitle: "Handmade Ceramic Vases",
+      productImage: "https://images.unsplash.com/photo-1481401908818-600b7a676c0d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e4fbdbf9370ddaf34f7e32c5e4d8765b&auto=format&fit=crop&w=2102&q=80",
+      userLocation: "San Diego",
+      productDesc: "blahblahblahblahblahblahblahblahblahblah",
       XAxis: ["0", '1', '2', '3', '4', '5', '6', '7', "8", "9", "10"],
 
       qualityRawData: [],
@@ -227,22 +227,36 @@ class Dashboard extends Component {
 
 
      return (
-      <div className="animated fadeIn">
+      <div className="animated fadeIn page-wrapper">
         <div className="row">
-           <div className="col s6 l3">          
-              <div className="chart-wrapper px-3" style={{height:'300px'}, {width:'600px'} }>
-                <Line data={chartData} />
-              </div>               
-           </div>
-        </div>
-        <div className="row">
-          <div className="col s6 l3">
-               <HorizontalBar data= {horizontalBarData} />
-           </div>
+          <div className="col s6 m4">
+            <ProductCard 
+              productTitle={this.state.productTitle}
+              productImage={this.state.productImage}
+              userLocation={this.state.userLocation}
+              productDesc={this.state.productDesc}
+            />
+          </div>
+          <div className="col s6 m8">
+            <div className="row">
+              <div className="col s12 m12">
+                <div className="chart-wrapper px-3" style={{height:'300px',width:'600px'}}>
+                  <Line data={chartData} />
+                </div>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col s12 m12">
+                <div className="col s6 l3">
+                  <HorizontalBar data= {horizontalBarData} />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      )
+      );
     }
   }
 
-export default Dashboard
+export default Dashboard;
