@@ -8,11 +8,6 @@
 .data-div {
     margin-left: 40px;
 }
-/*
- * react-circular-progressbar styles
- *
- * All of the styles in this file are optional and configurable!
- */
 
 .CircularProgressbar {
   /*
@@ -75,3 +70,12 @@
 .progressbar-appeal .CircularProgressbar-path { stroke: #4dbd74; }
 
 .progressbar-value .CircularProgressbar-path { stroke: #f86c6b; }
+
+.donuts-div {
+    text-align: center;
+    margin: 10px auto;
+}
+
+.quality-donut {
+    margin-left: 20%;
+}
