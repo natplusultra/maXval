@@ -299,22 +299,22 @@ class Dashboard extends Component {
               </div>
             </div>
             <div className="row donuts-div">
-              <div className="col s12 m4">
+              <div className="col s12 m3">
+                <CircularProgressbar percentage={this.state.totalVotes } className="progressbar-value" />
+                <span className="text-graph">Total Votes</span>
+              </div>
+              <div className="col s12 m3">
                 <CircularProgressbar percentage={Math.floor(this.state.qualityAvg * 10)} className="progressbar-quality" />
-              <span className="text-graph">Quality</span>
+              <span className="text-graph">Average Quality</span>
               </div>
-              <div className="col s12 m4">
+              <div className="col s12 m3">
                 <CircularProgressbar percentage={Math.floor(this.state.appealAvg * 10)} className="progressbar-appeal"/>
-              <span className="text-graph">Appeal</span>
+              <span className="text-graph">Average Appeal</span>
               </div>
-              <div className="col s12 m4">
+              <div className="col s12 m3">
                 <CircularProgressbar percentage={Math.floor(this.state.valueAvg * 10)} className="progressbar-value" />
-                <span className="text-graph">Value</span>
+                <span className="text-graph">Average Value</span>
               </div>
-              <div className="col s12 l3 m4">
-                  <CircularProgressbar percentage={this.state.totalVotes } className="progressbar-value" />
-                 <span className="text-graph">Votes</span>
-                </div>
             </div>
           </div>
         </div>
