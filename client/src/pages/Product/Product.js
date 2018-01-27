@@ -30,11 +30,19 @@ const mainChartOpts = {
   },
   scales: {
     xAxes: [{
+      scaleLabel: {
+        display: true,
+        labelString: 'Score'
+      },
       gridLines: {
         drawOnChartArea: false,
       }
     }],
     yAxes: [{
+      scaleLabel: {
+        display: true,
+        labelString: 'Votes'
+      },
       ticks: {
         beginAtZero: true,
         maxTicksLimit: 5,
