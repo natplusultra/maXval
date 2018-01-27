@@ -71,7 +71,19 @@
 
 .progressbar-value .CircularProgressbar-path { stroke: #f86c6b; }
 
+.data-div {
+    margin-left: 20px;
+    padding-left: 20px;
+}
 .donuts-div {
     text-align: center;
     margin: 40px auto;
+}
+
+.rating-title {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 10px 0px;
+    text-align: center;
+    background-color:  rgb(232, 233, 235);
 }

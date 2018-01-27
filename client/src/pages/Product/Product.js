@@ -290,6 +290,7 @@ class Dashboard extends Component {
             />
           </div>
           <div className="col s6 m8">
+            <h5 className="rating-title">Ratings Data</h5>
             <div className="row">
               <div className="col s12 m12">
                 <div className="chart-wrapper px-3" style={{height: 300 + 'px', marginTop: 40 + 'px'}}>
