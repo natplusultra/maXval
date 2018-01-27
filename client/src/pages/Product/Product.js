@@ -139,7 +139,7 @@ class Dashboard extends Component {
         let valueCount = (this.countOccurrence(value))
 
         //Set maximum value on Y axis to length of array.
-        mainChartOpts.scales.yAxes[0].ticks.max = arr.length + 1;
+        // mainChartOpts.scales.yAxes[0].ticks.max = arr.length + 1;
 
         this.setState({
           //Quality data 
@@ -318,7 +318,7 @@ class Dashboard extends Component {
                 background
                 backgroundPadding={5}
                 strokeWidth={6}
-                percentage={66} />
+                percentage={0} />
                 <span className="text-graph">Total Votes</span>
               </div>
               <div className="col s12 m3">
