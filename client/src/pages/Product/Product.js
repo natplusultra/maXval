@@ -80,6 +80,8 @@ class Dashboard extends Component {
       valueAvg: 0,
       valueMedian: 0,
 
+      totalVotes: 0,
+
     }
 
       // loads user's products
@@ -145,7 +147,10 @@ class Dashboard extends Component {
           valueRawData: value,
           valueYAxis: valueCount,
           valueAvg: this.calAverage(value),
-          valueMedian: this.calMedian(value)
+          valueMedian: this.calMedian(value),
+
+           //Total Vote Data
+          totalVotes: this.calVotes(arr),
         });
     }
 
@@ -194,6 +199,11 @@ class Dashboard extends Component {
       let highMiddle = Math.ceil((arr.length - 1) / 2);
       let median = (arr[lowMiddle] + arr[highMiddle]) / 2;
       return median;
+    }
+
+    calVotes(arr){
+      let totalVotes = (arr.length + 1);
+      return totalVotes;
     }
 
   render() {
@@ -290,16 +300,20 @@ class Dashboard extends Component {
             <div className="row donuts-div">
               <div className="col s12 m4">
                 <CircularProgressbar percentage={Math.floor(this.state.qualityAvg * 10)} className="progressbar-quality" />
-              <span className="text-graph">Average Quality</span>
+              <span className="text-graph">Quality</span>
               </div>
               <div className="col s12 m4">
                 <CircularProgressbar percentage={Math.floor(this.state.appealAvg * 10)} className="progressbar-appeal"/>
-              <span className="text-graph">Average Appeal</span>
+              <span className="text-graph">Appeal</span>
               </div>
               <div className="col s12 m4">
                 <CircularProgressbar percentage={Math.floor(this.state.valueAvg * 10)} className="progressbar-value" />
-                <span className="text-graph">Average Value</span>
+                <span className="text-graph">Value</span>
               </div>
+              <div className="col s12 l3 m4">
+                  <CircularProgressbar percentage={this.state.totalVotes } className="progressbar-value" />
+                 <span className="text-graph">Votes</span>
+                </div>
             </div>
           </div>
         </div>
