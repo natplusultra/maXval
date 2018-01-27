@@ -308,7 +308,14 @@ class Dashboard extends Component {
             </div>
             <div className="row donuts-div">
               <div className="col s12 m3">
-              <CircularProgressbar percentage={100} textForPercentage={(percentage) => {return  `${(this.state.totalVotes)}`;}} className="progressbar-votes" />
+              <CircularProgressbar
+               percentage={100}
+               textForPercentage={(percentage) => {return  `${(this.state.totalVotes)}`;}}
+               className="CircularProgressbar-inverted"
+                background
+                backgroundPadding={5}
+                strokeWidth={6}
+                percentage={66} />
                 <span className="text-graph">Total Votes</span>
               </div>
               <div className="col s12 m3">
