@@ -42,6 +42,21 @@ class Login extends Component {
     });
   }
 
+  saveToDatabaseLocal(user){
+    API.saveUser({
+      uid: user.uid,
+      email: user.email,
+    })
+    .then(res => console.log(res))
+    .catch(err => {
+      if(err.response.status === 422) {
+      } else {
+        console.log(err.response)
+      }
+    });
+  }
+
+
   authWithFacebook() {
     app.auth().signInWithPopup(facebookProvider)
       .then((user, error) => {
@@ -93,10 +108,11 @@ class Login extends Component {
           this.loginForm.reset()
           this.props.setCurrentUser(user)
           this.setState({redirect: true})
-          {this.saveToDatabase(user)}
+          this.saveToDatabaseLocal(user)
         }
       })
       .catch((error) => {
+        console.log(error)
         this.toaster.show({ intent: Intent.DANGER, message: error.message })
       })
   }
