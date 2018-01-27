@@ -23,7 +23,7 @@ function convertHex(hex, opacity) {
   var result = 'rgba(' + r + ',' + g + ',' + b + ',' + opacity / 100 + ')';
   return result;
 }
-const mainChartOpts = {
+var mainChartOpts = {
   maintainAspectRatio: false,
   legend: {
     display: true
@@ -46,7 +46,7 @@ const mainChartOpts = {
       ticks: {
         beginAtZero: true,
         maxTicksLimit: 5,
-        stepSize: Math.ceil( 15 / 5),
+        stepSize: 5,
         max: 15
       }
     }]
@@ -137,6 +137,9 @@ class Dashboard extends Component {
         let qualityCount = (this.countOccurrence(quality))
         let appealCount = (this.countOccurrence(appeal))
         let valueCount = (this.countOccurrence(value))
+
+        //Set maximum value on Y axis to length of array.
+        mainChartOpts.scales.yAxes[0].ticks.max = arr.length + 1;
 
         this.setState({
           //Quality data 
