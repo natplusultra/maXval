@@ -20,8 +20,7 @@
     "react-native-md-textinput": "^2.0.4",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17",
-    "superagent": "^3.8.2",
-    "react-circular-progressbar": "^0.6.0"
+    "superagent": "^3.8.2"
   },
   "scripts": {
     "start": "react-scripts start",
