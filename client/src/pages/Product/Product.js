@@ -300,20 +300,20 @@ class Dashboard extends Component {
             </div>
             <div className="row donuts-div">
               <div className="col s12 m3">
-                <CircularProgressbar percentage={this.state.totalVotes } className="progressbar-value" />
+              <CircularProgressbar percentage={100} textForPercentage={(percentage) => {return  `${(this.state.totalVotes)}`;}} className="progressbar-votes" />
                 <span className="text-graph">Total Votes</span>
               </div>
               <div className="col s12 m3">
-                <CircularProgressbar percentage={Math.floor(this.state.qualityAvg * 10)} className="progressbar-quality" />
+                <CircularProgressbar percentage={this.state.qualityAvg*10} textForPercentage={(percentage) => {return  `${(percentage/10).toFixed(2)}`;}} className="progressbar-quality" />
               <span className="text-graph">Average Quality</span>
               </div>
               <div className="col s12 m3">
-                <CircularProgressbar percentage={Math.floor(this.state.appealAvg * 10)} className="progressbar-appeal"/>
+                <CircularProgressbar percentage={this.state.appealAvg*10} textForPercentage={(percentage) => {return  `${(percentage/10).toFixed(2)}`;}} className="progressbar-appeal" />
               <span className="text-graph">Average Appeal</span>
               </div>
               <div className="col s12 m3">
-                <CircularProgressbar percentage={Math.floor(this.state.valueAvg * 10)} className="progressbar-value" />
-                <span className="text-graph">Average Value</span>
+                <CircularProgressbar percentage={this.state.valueAvg*10} textForPercentage={(percentage) => {return  `${(percentage/10).toFixed(2)}`;}} className="progressbar-value" />
+              <span className="text-graph">Average Value</span>
               </div>
             </div>
           </div>

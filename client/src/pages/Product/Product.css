@@ -65,6 +65,8 @@
   stroke: transparent;
 }
 
+.progressbar-votes .CircularProgressbar-path { stroke: white; }
+
 .progressbar-quality .CircularProgressbar-path { stroke: #63c2de; }
 
 .progressbar-appeal .CircularProgressbar-path { stroke: #4dbd74; }
