@@ -14,3 +14,5 @@ Using maXval, you can easily see how others view your product, receive valuable 
 
 ### Technologies Used
 JavaScript, HTML, CSS, React, Express, Node, MongoDB, Mongoose, Firebase, Axios, Materialize, Material-UI, Chart.js
+
+![maXval gif](https://github.com/natplusultra/maXval/blob/master/client/public/images/maXval.gif)
