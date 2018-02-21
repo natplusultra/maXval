@@ -31,7 +31,21 @@ class ProductUpload extends Component {
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.updatePredicate = this.updatePredicate.bind(this);
     }
+
+        componentDidMount() {
+        this.updatePredicate();
+        window.addEventListener("resize", this.updatePredicate);
+      }
+    
+      componentWillUnmount() {
+        window.removeEventListener("resize", this.updatePredicate);
+      }
+    
+      updatePredicate() {
+        this.setState({ isDesktop: window.innerWidth > 992 });
+      }
     
     onImageDrop(files) {
         this.setState({
@@ -232,20 +246,36 @@ class ProductUpload extends Component {
 
     render() {
         const {loading, stepIndex} = this.state;
+        const isDesktop = this.state.isDesktop;
 
         return (
             <div style={{width: "100%", maxWidth: 700, margin: "auto"}}>
-                <Stepper activeStep={stepIndex}>
-                <Step>
-                    <StepLabel>Upload product image</StepLabel>
-                </Step>
-                <Step>
-                    <StepLabel>Provide product details</StepLabel>
-                </Step>
-                <Step>
-                    <StepLabel>Submit new product</StepLabel>
-                </Step>
-                </Stepper>
+                {isDesktop ? (
+                        <Stepper activeStep={stepIndex}>
+                        <Step>
+                            <StepLabel>Upload product image</StepLabel>
+                        </Step>
+                        <Step>
+                            <StepLabel>Provide product details</StepLabel>
+                        </Step>
+                        <Step>
+                            <StepLabel>Submit new product</StepLabel>
+                        </Step>
+                        </Stepper>
+                    ) : (
+                        <Stepper activeStep={stepIndex} orientation="vertical">
+                        <Step>
+                            <StepLabel>Upload product image</StepLabel>
+                        </Step>
+                        <Step>
+                            <StepLabel>Provide product details</StepLabel>
+                        </Step>
+                        <Step>
+                            <StepLabel>Submit new product</StepLabel>
+                        </Step>
+                        </Stepper>
+                    )}
+
                 <ExpandTransition loading={loading} open={true}>
                 {this.renderContent()}
                 </ExpandTransition>
