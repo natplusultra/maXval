@@ -83,3 +83,16 @@
     text-align: center;
     background-color:  rgb(232, 233, 235);
 }
+
+@media only screen and (max-width: 992px) {
+  .page-wrapper {
+      margin:10px
+  }
+
+  .chartjs-render-monitor {
+    width:300px;
+    height:300px;
+  } 
+}
+
+
