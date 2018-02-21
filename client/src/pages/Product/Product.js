@@ -292,7 +292,7 @@ class Dashboard extends Component {
      return (
       <div className="animated fadeIn page-wrapper">
         <div className="row">
-          <div className="col s6 m4">
+          <div className="col s12 m4">
             <ProductCard 
               productTitle={this.state.product.name}
               productImage={this.state.product.img}
@@ -300,7 +300,7 @@ class Dashboard extends Component {
               productDesc={this.state.product.description}
             />
           </div>
-          <div className="col s6 m8">
+          <div className="col s12 m8">
             <h5 className="rating-title">Ratings Data</h5>
             <div className="row">
               <div className="col s12 m12">
@@ -310,7 +310,7 @@ class Dashboard extends Component {
               </div>
             </div>
             <div className="row donuts-div">
-              <div className="col s12 m3">
+              <div className="col s6 m3">
               <CircularProgressbar
                percentage={100}
                textForPercentage={(percentage) => {return  `${(this.state.totalVotes)}`;}}
@@ -321,15 +321,15 @@ class Dashboard extends Component {
                 percentage={0} />
                 <span className="text-graph">Total Votes</span>
               </div>
-              <div className="col s12 m3">
+              <div className="col s6 m3">
                 <CircularProgressbar percentage={this.state.qualityAvg*10} textForPercentage={(percentage) => {return  `${(percentage/10).toFixed(2)}`;}} className="progressbar-quality" />
               <span className="text-graph">Average Quality</span>
               </div>
-              <div className="col s12 m3">
+              <div className="col s6 m3">
                 <CircularProgressbar percentage={this.state.appealAvg*10} textForPercentage={(percentage) => {return  `${(percentage/10).toFixed(2)}`;}} className="progressbar-appeal" />
               <span className="text-graph">Average Appeal</span>
               </div>
-              <div className="col s12 m3">
+              <div className="col s6 m3">
                 <CircularProgressbar percentage={this.state.valueAvg*10} textForPercentage={(percentage) => {return  `${(percentage/10).toFixed(2)}`;}} className="progressbar-value" />
               <span className="text-graph">Average Value</span>
               </div>

@@ -2,7 +2,7 @@
     margin: 80px;
 }
 .text-graph {
-	margin-right: 10px;
+	margin-left: 10px;
 }
 
 .data-div {
@@ -65,18 +65,12 @@
   stroke: transparent;
 }
 
-.progressbar-votes .CircularProgressbar-path { stroke: white; }
-
 .progressbar-quality .CircularProgressbar-path { stroke: #63c2de; }
 
 .progressbar-appeal .CircularProgressbar-path { stroke: #4dbd74; }
 
 .progressbar-value .CircularProgressbar-path { stroke: #f86c6b; }
 
-.data-div {
-    margin-left: 20px;
-    padding-left: 20px;
-}
 .donuts-div {
     text-align: center;
     margin: 40px auto;
