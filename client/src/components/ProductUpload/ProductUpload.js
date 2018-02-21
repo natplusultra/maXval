@@ -27,7 +27,8 @@ class ProductUpload extends Component {
             itemLocation: "",
             itemDescription: "",
             uploadedFile: null,
-            uploadedFileCloudinaryUrl: ""
+            uploadedFileCloudinaryUrl: "",
+            isDesktop: false
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
