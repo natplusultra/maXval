@@ -42,3 +42,22 @@
 .delete-btn > .btn:hover {
     background-color: rgb(224, 77, 77);
 }
+
+@media only screen and (max-width: 992px) {
+    .wrapper {
+        margin:10px
+    }
+
+    .grid-div {
+        display: inline-block;
+    }
+
+    .greeting {
+        margin-left: 0px;
+        font-size: 25px;
+    }
+
+  }
+  
+  
+  
