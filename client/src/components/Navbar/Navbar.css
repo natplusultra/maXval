@@ -16,6 +16,9 @@
 
 @media only screen and (max-width: 992px) {
     nav .brand-logo {
-        left: 15%;
+        left: 20%;
+    }
+    nav ul a {
+        padding: 0 5px;
     }
 }
